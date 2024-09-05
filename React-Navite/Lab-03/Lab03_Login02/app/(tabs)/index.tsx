@@ -7,7 +7,7 @@ export default function index() {
     <View style={styles.container}>
       <View style={styles.top}>
         <Image style={styles.imgTop} 
-          source={require('../../assets/images/imgTop.png')}
+         source={require('../../assets/images/imgTop.png')}
           resizeMode='contain'
         ></Image>
       </View>
