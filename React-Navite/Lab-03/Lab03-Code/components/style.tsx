@@ -53,27 +53,18 @@ const style = StyleSheet.create({
 
     bottom: {
         flex: 1,
+        marginBottom: 60,
     },
 
     input: {
         flex: 1,
         flexDirection: 'row',
-        backgroundColor: '#fff',
-    },
 
-    textInput: {
-        flex: 1,
-        backgroundColor: '#fff',
-        borderRadius: 10,
-        padding: 10,
-        fontSize: 18,
     },
-
     btn: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'blue',
     },
 
     TObtn: {
