@@ -6,7 +6,7 @@ Lab-LapTrinhDiDong-IUH là dự án học tập nhằm mục đích xây dựng 
 
 ## Thông tin liên hệ
 
-- Giảng viên hướng dẫn: Nguyễn Văn Thắng
+- Giảng viên hướng dẫn: Nguyễn Văn Thắng and Nguyễn Trọng Tiến
 - Sinh viên thực hiện:
   - Họ và tên: Nguyễn Thành Luân
   - Mã số sinh viên: 21123021
