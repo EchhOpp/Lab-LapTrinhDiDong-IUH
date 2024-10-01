@@ -160,3 +160,9 @@ const styles = StyleSheet.create({
     }
 });
 export default App;
+
+<View style={{flexDirection: 'row', justifyContent: 'space-between', padding: 10, backgroundColor: '#1da7fc' }}>
+<Image source={require('../assets/images/cd.png')} />
+<Image source={require('../assets/images/Vector.png')} />
+<Image source={require('../assets/images/Vector.png')} />
+</View>
