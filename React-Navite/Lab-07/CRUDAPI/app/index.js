@@ -38,6 +38,20 @@ const index = () => {
     .catch((error) => console.error(error));
   };
 
+  const handleDelete = (id) => {
+    fetch(`https://6458c5718badff578efa564b.mockapi.io/api/todos/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+    .then((response) => response.json())
+    .then(() => {
+      setData((currentData) => currentData.filter(item => item.id !== id));
+    })
+    .catch((error) => console.error(error));
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}> 
@@ -56,7 +70,7 @@ const index = () => {
             ({id}, index) => id
           }
           renderItem={
-            ({item}) => <Component obj={item}></Component>
+            ({item}) => <Component obj={item} onDelete={handleDelete}></Component>
           }
         />
       </View>

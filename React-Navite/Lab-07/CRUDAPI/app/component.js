@@ -1,7 +1,7 @@
 import { View, Text, TouchableOpacity} from 'react-native'
 import React from 'react'
 
-const component = ({obj}) => {
+const component = ({obj, onDelete}) => {
   return (
     <View style={{flexDirection: 'row', justifyContent: 'space-between', margin: 10, alignItems:'center'}}>
       <Text>{obj.name}</Text>
@@ -11,7 +11,7 @@ const component = ({obj}) => {
             Edit
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={{padding: 8, backgroundColor: 'grey', margin: 10}}>
+        <TouchableOpacity style={{padding: 8, backgroundColor: 'grey', margin: 10}} onPress={()=>onDelete(obj.id)}>
           <Text style={{color: 'white', fontWeight: 'bold'}}>
             Delete
           </Text>
