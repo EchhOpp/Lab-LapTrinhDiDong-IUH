@@ -17,7 +17,7 @@ const index = () => {
 
   const handleAdd = () => {
     const newData = { 
-      name: 'New User', 
+      name: input, 
       avatar: 'https://example.com/new-avatar.jpg', 
       createdAt: new Date().toISOString() 
     };
@@ -56,7 +56,13 @@ const index = () => {
   return (
     <SafeAreaView style={{flex: 1}}> 
       <View>
-        <TextInput placeholder='Nhập tên'style={{borderWidth:1, borderColor:'black', padding : 10, margin: 10}}/>
+        <TextInput placeholder='Nhập tên'style={{borderWidth:1, borderColor:'black', padding : 10, margin: 10}}
+           value={input} // Giá trị của input được liên kết với state input
+            onChangeText={(text) => {
+             console.log(text); // Kiểm tra giá trị nhập vào
+             setInput(text);
+            }}
+        />
         <TouchableOpacity style={{backgroundColor:'blue', padding: 10, margin: 10}} onPress={handleAdd}>
           <Text style={{color:'white', textAlign:'center', fontWeight:'bold'}}>
             Add
