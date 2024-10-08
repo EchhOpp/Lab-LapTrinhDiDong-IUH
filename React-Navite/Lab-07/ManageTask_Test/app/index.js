@@ -1,7 +1,12 @@
+import * as React from 'react';
 import { Text, View, SafeAreaView, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DetailList from '../components/DetailList';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -15,17 +20,51 @@ export default function App() {
           </View>
           <TextInput style={styles.textInput} />
         </View>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.replace('DetailList')}>
           <Text style={styles.buttonText}>GET STARTED</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
+  );
+};
+
+export default function App() {
+  return (
+    <NavigationContainer  independent={true}>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }} // Ẩn tiêu đề của màn hình Home
+        />
+        <Stack.Screen name="DetailList" component={DetailList} 
+          options={
+            ({navigation}) => ({
+              title: 'Detail List',
+              headerStyle: {
+                backgroundColor: '#00bdd5',
+              },
+              headerTintColor: 'white',
+              headerTitleStyle: {
+                fontWeight: 'bold',
+              },
+              headerLeft: () => (
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                  <Text style={{color: 'white', marginLeft: 10}}>Back</Text>
+                </TouchableOpacity>
+              )
+            })
+          }
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
   },
   header: {
     flex: 1,
