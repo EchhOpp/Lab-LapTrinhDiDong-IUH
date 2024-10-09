@@ -3,6 +3,7 @@ import { Text, View, SafeAreaView, TextInput, StyleSheet, Image, TouchableOpacit
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DetailList from './components/DetailList';
+import AddYourJob from './components/AddYourJob';
 
 
 const Stack = createNativeStackNavigator();
@@ -34,8 +35,41 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={HomeScreen} options={{headerShow: false, title: false}}/>
-        <Stack.Screen name ='DetailList' component={DetailList}/>
+        <Stack.Screen 
+        name="Home" 
+        component={HomeScreen} 
+        options={{headerShown: false, headerTitle: ''}}
+        />
+        <Stack.Screen 
+        name ='DetailList' 
+        component={DetailList} 
+        options={{
+          headerTitle: '',
+          headerRight: () => (
+            <View style={{flexDirection: 'row', justifyContent:'center',alignItems: 'center'}}>
+              <View style={{marginHorizontal: 10}}>
+                <Image source={require('./assets/images/imguser.png')}/>
+              </View>
+              <View>
+                <Text>
+                  Hi ThanhLuan
+                </Text>
+                <Text>
+                  Have agreat day a head
+                </Text>
+              </View>
+            </View>
+           ),
+          
+        }}
+        />
+
+        <Stack.Screen name='AddYourJob'
+        component={AddYourJob}
+        options={{
+          headerTitle: ''
+        }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
